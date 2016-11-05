@@ -4,7 +4,7 @@
 
 main = print(sumEvenFibsLessThan 4000000)
 
---sumEvenFibsLessThan :: (Integer a) => a -> a
+sumEvenFibsLessThan :: Integer -> Integer
 sumEvenFibsLessThan n = sum (filter even (takeWhile (<n) fibs))
 
 fibs = 1:1:zipWith (+) fibs (tail fibs)
