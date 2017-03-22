@@ -4,7 +4,7 @@
 -}
 
 greatestPrime :: (Integral a) => a -> a
-greatestPrime n = head [x | x <- reverse [1..(floor $ (/) (fromIntegral n) 2)], isFactor n x && isPrime x]
+greatestPrime n = head [x | x <- reverse [1..(sqrtFloor n)], isFactor n x && isPrime x]
 
 isFactor :: (Integral a) => a -> a -> Bool
 isFactor a b
@@ -26,3 +26,5 @@ isPrime' x y
   | mod x y /= 0 = isPrime' x (y-2) 
   | otherwise    = False
 
+sqrtFloor :: (Integral a) => a -> a
+sqrtFloor a = floor $ sqrt $ fromIntegral a
